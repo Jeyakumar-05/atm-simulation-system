@@ -45,7 +45,7 @@ public class AccountDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return null; // Account not found
+        return null;
     }
 
     public void updateBalance(String accountNumber, double newBalance) {
@@ -60,3 +60,4 @@ public class AccountDAO {
         }
     }
 }
+

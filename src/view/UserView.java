@@ -12,18 +12,17 @@ public class UserView {
     public void start() {
         System.out.println("Welcome to the User Login!");
 
-        // Step 1: Insert Card
         System.out.print("Enter Card ID: ");
         String cardId = scanner.nextLine();
         System.out.print("Enter PIN: ");
         String pin = scanner.nextLine();
 
-        // Verify card and get account details
+
         AccountDTO account = userController.verifyCardAndGetAccount(cardId, pin);
 
         if (account != null) {
             System.out.println("Card verified! Bank: " + account.getBankName());
-            showMenu(account); // Show the user menu
+            showMenu(account);
         } else {
             System.out.println("Invalid Card ID or PIN.");
         }
@@ -41,7 +40,7 @@ public class UserView {
                     double withdrawAmount = scanner.nextDouble();
                     if (userController.withdraw(account, withdrawAmount)) {
                         System.out.println("Withdrawal successful!");
-                        // Generate receipt
+
                         TransactionDTO transaction = new TransactionDTO(
                                 "TXN" + System.currentTimeMillis(),
                                 account.getAccountNumber(),
@@ -60,7 +59,7 @@ public class UserView {
                     double depositAmount = scanner.nextDouble();
                     userController.deposit(account, depositAmount);
                     System.out.println("Deposit successful!");
-                    // Generate receipt
+
                     TransactionDTO transaction = new TransactionDTO(
                             "TXN" + System.currentTimeMillis(),
                             account.getAccountNumber(),

@@ -12,17 +12,17 @@ public class UserController {
     private CardDAO cardDAO = new CardDAO();
     private TransactionDAO transactionDAO = new TransactionDAO();
 
-    // Verify card and get the linked account
+
     public AccountDTO verifyCardAndGetAccount(String cardId, String pin) {
-        // Step 1: Verify the card using CardDAO
+
         CardDTO card = cardDAO.verifyCard(cardId, pin);
 
         if (card != null) {
-            // Step 2: If the card is valid, retrieve the linked account using AccountDAO
+
             return accountDAO.getAccountByNumber(card.getAccountNumber());
         }
 
-        return null; // Invalid card or PIN
+        return null;
     }
 
     public boolean withdraw(AccountDTO account, double amount) {
@@ -30,9 +30,9 @@ public class UserController {
             double newBalance = account.getBalance() - amount;
             accountDAO.updateBalance(account.getAccountNumber(), newBalance);
 
-            // Log transaction
+
             TransactionDTO transaction = new TransactionDTO(
-                    "TXN" + System.currentTimeMillis(), // Unique transaction ID
+                    "TXN" + System.currentTimeMillis(),
                     account.getAccountNumber(),
                     amount,
                     "WITHDRAW",
@@ -40,18 +40,17 @@ public class UserController {
             );
             transactionDAO.addTransaction(transaction);
 
-            return true; // Withdrawal successful
+            return true;
         }
-        return false; // Insufficient balance
+        return false;
     }
 
     public void deposit(AccountDTO account, double amount) {
         double newBalance = account.getBalance() + amount;
         accountDAO.updateBalance(account.getAccountNumber(), newBalance);
 
-        // Log transaction
         TransactionDTO transaction = new TransactionDTO(
-                "TXN" + System.currentTimeMillis(), // Unique transaction ID
+                "TXN" + System.currentTimeMillis(),
                 account.getAccountNumber(),
                 amount,
                 "DEPOSIT",

@@ -13,7 +13,7 @@ public class CardDAO {
         try (Connection conn = DBUtil.getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
             stmt.setString(1, card.getCardId());
-            stmt.setString(2, card.getHashedPin());
+            stmt.setString(2, SecurityUtil.hash(card.getHashedPin()));
             stmt.setString(3, card.getAccountNumber());
             stmt.setString(4, card.getBankName());
             stmt.setString(5, card.getUsername());
@@ -52,6 +52,6 @@ public class CardDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return null; // Invalid card or PIN
+        return null;
     }
 }

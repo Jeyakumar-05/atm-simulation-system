@@ -30,7 +30,7 @@ public class AdminView {
             System.out.println("\n1. Add Account\n2. Add Card\n3. Exit");
             System.out.print("Choose an option: ");
             int choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
+            scanner.nextLine();
 
             switch (choice) {
                 case 1:
@@ -59,7 +59,7 @@ public class AdminView {
         String accountType = scanner.nextLine();
         System.out.print("Enter Initial Balance: ");
         double balance = scanner.nextDouble();
-        scanner.nextLine(); // Consume newline
+        scanner.nextLine();
         System.out.print("Enter Bank Name: ");
         String bankName = scanner.nextLine();
         System.out.print("Enter Bank Address: ");
@@ -90,13 +90,13 @@ public class AdminView {
         String cardType = scanner.nextLine();
         System.out.print("Enter Amount Limit: ");
         double amountLimit = scanner.nextDouble();
-        scanner.nextLine(); // Consume newline
+        scanner.nextLine();
         System.out.print("Enter Validity (YYYY-MM-DD): ");
         String validityStr = scanner.nextLine();
-        Date validity = Date.valueOf(validityStr); // Convert String to java.sql.Date
+        Date validity = Date.valueOf(validityStr);
         System.out.print("Enter Issued Date (YYYY-MM-DD): ");
         String issuedDateStr = scanner.nextLine();
-        Date issuedDate = Date.valueOf(issuedDateStr); // Convert String to java.sql.Date
+        Date issuedDate = Date.valueOf(issuedDateStr);
         System.out.print("Enter Status (Active/Inactive/Blocked): ");
         String status = scanner.nextLine();
 

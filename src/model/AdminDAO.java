@@ -20,6 +20,6 @@ public class AdminDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return null; // Invalid email or password
+        return null;
     }
 }

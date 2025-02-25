@@ -4,7 +4,7 @@ public class TransactionDTO {
     private String transactionId;
     private String accountNumber;
     private double amount;
-    private String type; // "WITHDRAW" or "DEPOSIT"
+    private String type;
     private String bankName;
 
     public TransactionDTO(String transactionId, String accountNumber, double amount, String type, String bankName) {
@@ -15,10 +15,24 @@ public class TransactionDTO {
         this.bankName = bankName;
     }
 
-    // Getters
-    public String getTransactionId() { return transactionId; }
-    public String getAccountNumber() { return accountNumber; }
-    public double getAmount() { return amount; }
-    public String getType() { return type; }
-    public String getBankName() { return bankName; }
+
+    public String getTransactionId() {
+        return transactionId;
+    }
+
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public String getBankName() {
+        return bankName;
+    }
 }

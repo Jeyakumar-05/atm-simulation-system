@@ -2,7 +2,7 @@ package resources;
 
 public class AccountDTO {
     private String accountNumber;
-    private String accountType; // Savings or Current
+    private String accountType;
     private double balance;
     private String bankName;
     private String bankAddress;
@@ -20,12 +20,25 @@ public class AccountDTO {
         this.username = username;
     }
 
-    // Getters
-    public String getAccountNumber() { return accountNumber; }
-    public String getAccountType() { return accountType; }
-    public double getBalance() { return balance; }
-    public String getBankName() { return bankName; }
-    public String getBankAddress() { return bankAddress; }
-    public String getContactNo() { return contactNo; }
-    public String getUsername() { return username; }
+    public String getAccountNumber() {
+        return accountNumber;
+    }
+    public String getAccountType() {
+        return accountType;
+    }
+    public double getBalance() {
+        return balance;
+    }
+    public String getBankName() {
+        return bankName;
+    }
+    public String getBankAddress() {
+        return bankAddress;
+    }
+    public String getContactNo() {
+        return contactNo;
+    }
+    public String getUsername() {
+        return username;
+    }
 }
